@@ -2,4 +2,4 @@
 Testing Description
 Group Members:
 Edith Gonzalez
-James Grom
+Sebastian De La Cruz
