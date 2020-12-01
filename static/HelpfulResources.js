@@ -8,21 +8,26 @@
 //<input type='text' value='Enter some text here'>
 //https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_input_test
 //^ also good
-const ResourceButton = document.getElementById('CustomizeButton');
+const ResourceButton = document.getElementById('ResourceButton');
 console.log(ResourceButton);
 
 
 function handleResourceButtonClicked(){
-    const ResDescrip = document.getElementById('ResDescrip').getAttribute('value');
-    const ResLink = document.getElementById('ResLink').getAttribute('value');   
+    console.log("Event Handle click thingy");
+    const ResDescrip = document.getElementById('ResDescrip').value;
+    const ResLink = document.getElementById('ResLink').value;   
     //add an input box
-    console.log("hello");
+    console.log("ResLink below")
     console.log(ResLink);
+    console.log("ResDescrip below")
     console.log(ResDescrip);
     
     if(!ResLink || !ResDescrip){
         //add a little red text thing below button
         //both fields must be valid
+        if(document.getElementById('ErrorText'))
+            return;
+
         const TopSection = document.getElementById('TopSection');
         let Error = document.createElement('p');
         Error.setAttribute("id", "ErrorText");
@@ -39,17 +44,23 @@ function handleResourceButtonClicked(){
     //the inner text is the descriptoini
     //the anchor is the link
     const List = document.getElementById('ResourceLinks');
-    let ResourceDescription = document.createElement('li');
+    let ResourceDescriptionNode = document.createElement('li');
     let ResourceLink = document.createElement('a');
     
-    ResourceDescription.appendChild(ResourceLink); // <li> <a>
+    ResourceLink.setAttribute('href', ResLink);
+    ResourceLink.innerText = ResDescrip;
 
-    ResourceDescription.innerText = ResDescrip;
-    ResourceLink.src = ResLink; //CHECK THIS ONE OUT I DONT KNOW
+    //ResourceDescription.appendChild(ResourceLink); // <li> <a>
 
-    List.appendChild(ResourceDescription);
+    ResourceDescriptionNode.appendChild(ResourceLink);
+    
+    List.appendChild(ResourceDescriptionNode);
+    
+    
+    console.log(List);
 }
 
 function main() {
-    ResourceButton.addEventListener('click', () => { handleResourceButtonClicked } ); //we do this syntax because we don't want the stack function to use the event, we want it to take in specific arguments
+    ResourceButton.addEventListener('click', () => { handleResourceButtonClicked() }); //we do this syntax because we don't want the stack function to use the event, we want it to take in specific arguments
 }
+main()
