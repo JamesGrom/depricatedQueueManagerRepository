@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 
     <link href='./HelpFulResources.css' rel='stylesheet'>
-    <script src='./HelpfulResources.js'></script>
+    <script defer src='./HelpfulResources.js'></script>
 </head>
 
 <body>
@@ -25,14 +25,15 @@
         <input type="text" id="ResDescrip" name="ResDescrip" value=""> 
         <label for="ResLink"> Resource Link*:</label>
         <input type="text" id="ResLink" name="ResLink" value=""> <!-- input has a value attribute, this will prob be useful -->
-        <div id="ButtonPlacement"> <button id="CustomizeButton"> Upload Resource </button> </div>
+        <div id="ButtonPlacement"> 
+            <button id='ResourceButton'> Upload Resource </button> 
+        </div>
     </section>  
 
     <section> 
         <nav> 
             <ul id="ResourceLinks"> 
-                <li> <a> Here is a resource  </a></li>
-                <li> <a> Another one </a></li>
+                <li> <a href='https://todoist.com/productivity-methods/pomodoro-technique'> Here is an example resource  </a> </li>
             </ul>
         </nav>
     </section>
